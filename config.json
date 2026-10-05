@@ -1,0 +1,78 @@
+{
+  "id": "comptables-tunisie",
+  "url": "https://ah6259.github.io/comptables-tunisie/",
+  "nom": {
+    "fr": "Comptables et conseillers Tunisie",
+    "ar": "المحاسبون والمستشارون في تونس"
+  },
+  "court": {
+    "fr": "Comptables TN",
+    "ar": "المحاسبون"
+  },
+  "sous_titre": {
+    "fr": "Annuaire gratuit · français et arabe",
+    "ar": "دليل مجاني · بالعربية والفرنسية"
+  },
+  "titre_accueil": {
+    "fr": "Trouver un comptable ou un conseiller en Tunisie, par gouvernorat",
+    "ar": "ابحث عن محاسب أو مستشار في تونس حسب الولاية"
+  },
+  "intro": {
+    "fr": "Annuaire gratuit des comptables, experts-comptables et conseillers fiscaux en Tunisie : adresse, téléphone, WhatsApp et itinéraire, gouvernorat par gouvernorat. Sans inscription.",
+    "ar": "دليل مجاني للمحاسبين والخبراء المحاسبين والمستشارين الجبائيين في تونس: العنوان والهاتف وواتساب والطريق، ولاية بولاية. دون تسجيل."
+  },
+  "description": "Annuaire gratuit des comptables, experts-comptables et conseillers fiscaux en Tunisie par gouvernorat : adresse, téléphone, WhatsApp, itinéraire. En français et en arabe.",
+  "couleur": "#12687A",
+  "couleur_fonce": "#0B4552",
+  "couleur_claire": "#E3F1F3",
+  "schema": "AccountingService",
+  "metiers": [
+    {
+      "id": "comptable",
+      "osm": [
+        "office=accountant"
+      ],
+      "fr": "Comptable",
+      "fr_pl": "Comptables et experts-comptables",
+      "ar": "محاسب",
+      "ar_pl": "المحاسبون والخبراء المحاسبون",
+      "mots": "comptable expert-comptable expert comptable cabinet comptabilité bilan déclaration محاسب خبير محاسب مكتب محاسبة"
+    },
+    {
+      "id": "conseiller-fiscal",
+      "osm": [
+        "office=tax_advisor"
+      ],
+      "fr": "Conseiller fiscal",
+      "fr_pl": "Conseillers fiscaux",
+      "ar": "مستشار جبائي",
+      "ar_pl": "المستشارون الجبائيون",
+      "mots": "conseiller fiscal conseil fiscal impôt impôts fiscalité déclaration مستشار جبائي جباية ضرائب أداءات"
+    }
+  ],
+  "liens": [
+    {
+      "fr": "Calculer gratuitement salaire net, impôt, crédit",
+      "ar": "احسب مجانًا الأجر الصافي والضريبة والقرض",
+      "url": "https://ah6259.github.io/outils-pratiques-tunisie/"
+    }
+  ],
+  "inscriptions_ouvertes": false,
+  "goatcounter": "https://prix-eaux-tunisie.goatcounter.com",
+  "formspree": "https://formspree.io/f/mwlpakqj",
+  "photo": {
+    "fichier": "assets/photo-accueil.webp",
+    "largeur": 900,
+    "hauteur": 675,
+    "alt": {
+      "fr": "Vue aérienne du quartier d’affaires des Berges du Lac à Tunis",
+      "ar": "منظر جوي لحي الأعمال ضفاف البحيرة بتونس"
+    },
+    "auteur": "Citizen59",
+    "licence": "CC BY 3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:QuatierLac1_TunisSep2012.jpg",
+    "preuve": "annuaires/preuves/2026-10-05/comptables-tunisie__QuatierLac1_TunisSep2012.jpg_page.html"
+  },
+  "og_image": "og-image-v1.jpg"
+}

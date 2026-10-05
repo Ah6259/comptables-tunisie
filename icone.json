@@ -1,0 +1,4 @@
+{
+  "bg": ["#1E8A9E", "#0B4552"],
+  "glyph": "<path d=\"M140 112h172l64 64v208a16 16 0 0 1-16 16H140a16 16 0 0 1-16-16V128a16 16 0 0 1 16-16z\" fill=\"#FFFFFF\"/><path d=\"M312 112v48a16 16 0 0 0 16 16h48z\" fill=\"#CFE7EC\"/><rect x=\"164\" y=\"196\" width=\"168\" height=\"22\" rx=\"11\" fill=\"#CFE7EC\"/><rect x=\"164\" y=\"244\" width=\"168\" height=\"22\" rx=\"11\" fill=\"#CFE7EC\"/><rect x=\"164\" y=\"292\" width=\"96\" height=\"22\" rx=\"11\" fill=\"#CFE7EC\"/><circle cx=\"342\" cy=\"344\" r=\"70\" fill=\"#F2B33D\"/><path d=\"M342 274a70 70 0 0 1 0 140z\" fill=\"#DE9A26\"/><path d=\"M310 346l24 24 44-48\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"20\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+}
