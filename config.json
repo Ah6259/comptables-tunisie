@@ -65,14 +65,14 @@
     "largeur": 900,
     "hauteur": 675,
     "alt": {
-      "fr": "Vue aérienne du quartier d’affaires des Berges du Lac à Tunis",
-      "ar": "منظر جوي لحي الأعمال ضفاف البحيرة بتونس"
+      "fr": "Bureau avec une calculatrice, un carnet de calculs et un ordinateur portable",
+      "ar": "مكتب عليه آلة حاسبة ودفتر حسابات وحاسوب محمول"
     },
-    "auteur": "Citizen59",
-    "licence": "CC BY 3.0",
-    "licence_url": "https://creativecommons.org/licenses/by/3.0",
-    "source": "https://commons.wikimedia.org/wiki/File:QuatierLac1_TunisSep2012.jpg",
-    "preuve": "annuaires/preuves/2026-10-05/comptables-tunisie__QuatierLac1_TunisSep2012.jpg_page.html"
+    "auteur": "Anonyme (Unsplash)",
+    "licence": "CC0",
+    "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Desktop_with_laptop_and_calculator_(Unsplash).jpg",
+    "preuve": "annuaires/preuves/2026-10-05/comptables-tunisie__Desktop_with_laptop_and_calculator_Unsplash_.jpg_page.html"
   },
-  "og_image": "og-image-v1.jpg"
+  "og_image": "og-image-v2.jpg"
 }
