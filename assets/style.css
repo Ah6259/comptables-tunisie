@@ -94,6 +94,8 @@ footer p{margin:6px 0}
 .metier{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:#fff;border:1px solid var(--ligne);border-radius:14px;padding:12px 8px;text-decoration:none;color:var(--texte);font-weight:700;box-shadow:var(--ombre)}
 .metier .n{background:var(--p-clair);color:var(--p);border-radius:999px;padding:0 9px;font-size:13px}
 .titre-fiche{display:flex;align-items:center;gap:12px}.titre-fiche .ill-metier{background:#fff;padding:3px;border-radius:12px}
+/* la petite image du métier dans le titre d'une fiche ne doit pas prendre la règle des photos du bandeau (.hero-photo img) */
+.hero-photo .titre-fiche img.ill-metier{width:48px;height:48px;aspect-ratio:auto;box-shadow:none;border-radius:12px}
 /* carte de la Tunisie (moteur commun) */
 .bloc-carte{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
 .bloc-carte figure{margin:0}.bloc-carte figcaption{font-size:12.5px;color:var(--doux);text-align:center;margin-top:6px;font-weight:600}
@@ -148,3 +150,17 @@ img,svg{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .metier .photo-metier{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .metier.avec-photo .ill-metier{position:absolute;top:8px;inset-inline-start:8px;background:#fff;border-radius:10px;padding:3px;box-shadow:var(--ombre);width:36px;height:36px}
 .credits{font-size:13px;color:var(--doux);padding-inline-start:18px}
+/* formulaire complet d'ajout (06/10/2026) — min-width:0 : sinon un fieldset déborde (page arabe décalée) */
+.champs-ajout,.champs-autre,.specialites-choix{border:0;padding:0;margin:0;display:grid;gap:8px;min-width:0}
+.champs-ajout>legend{font-weight:800;font-size:14px;color:var(--p);margin-bottom:4px;padding:0}
+.specialites-choix{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px 12px}.specialites-choix legend{font-weight:700;font-size:14px;padding:0}
+.choix-action{min-width:0}
+[hidden]{display:none!important}
+/* bouton « Inscription Pro » toujours visible + paiement (règle d'Ahmed du 06/10/2026, tous les moteurs) */
+.entete-boutons{display:flex;align-items:center;gap:8px;flex:none}
+.entete-pro{background:#F2B33D;color:#3A2A00;border-radius:999px;padding:6px 12px;font-weight:800;font-size:14px;text-decoration:none;white-space:nowrap}
+@media (max-width:420px){.entete-pro{padding:5px 9px;font-size:12.5px}.logo small{display:none}}
+.btn-pro{background:#F2B33D;color:#3A2A00}
+.paiement{margin:12px 0}.paiement summary{list-style:none;cursor:pointer}.paiement summary::-webkit-details-marker{display:none}
+.paiement[open] summary{margin-bottom:10px}
+.offre .btn{margin-top:10px}

@@ -99,6 +99,7 @@ const SECRETS = /(AIza[0-9A-Za-z_-]{20,}|gh[pousr]_[0-9A-Za-z]{20,}|sk-[0-9A-Za-
 check("aucun secret ni adresse e-mail privée dans le site", ![...pages, "config.json", "assets/page.js", "assets/annuaire.js", "assets/conf.js"].some(f => SECRETS.test(lire(f))));
 
 check("arabe : le champ anti-robot des formulaires garde 1 px de large (sinon la page arabe est décalée à droite)", /\.formulaire input\.piege[^}]*width:1px/.test(lire("assets/style.css")));
+check("un élément caché (attribut hidden) reste toujours caché, même avec un style d'affichage", /\[hidden\]\{display:none!important\}/.test(lire("assets/style.css")));
 check("arabe : aucun élément placé loin hors de l'écran (sinon la page arabe s'affiche blanche sur téléphone)", !/(left|right)\s*:\s*-\d{3,}px/.test(lire("assets/style.css")));
 check("doublons : pas deux fiches au même nom à moins de 300 m", (() => {
   const L = fichesPages.map(p => { const m = lire(p).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/); try { return JSON.parse(m[1]); } catch { return null; } }).filter(x => x && x.geo);
@@ -159,14 +160,30 @@ else {
   check("fiche : un clic (appel / WhatsApp / itinéraire) est compté anonymement", !bouton || r.envois.some(e => e === `clic-${bouton.dataset.clic}/${fTel.id}`));
   const ins = await ouvrir("inscription/index.html", `?fiche=${f0.id}&action=retirer`);
   check("professionnels : fiche et action « retirer » pré-remplies depuis le lien d'une fiche", ins.d.getElementById("champ-fiche").value === f0.id && ins.d.querySelector('input[name="action"][value="retirer"]').checked);
+  {
+    const v = await ouvrir("inscription/index.html");
+    v.w.fetch = async () => ({ ok: true });
+    const fd = v.d.querySelector('form[data-envoi="demande"]');
+    fd.dispatchEvent(new v.w.Event("submit", { bubbles: true, cancelable: true }));
+    await new Promise(r => setTimeout(r, 50));
+    const ap = v.d.getElementById("apres-ajout");
+    check("ajout gratuit envoyé : l'offre Pro (prix, avantages, sans engagement) et les modes de paiement s'affichent aussitôt", !!ap && !ap.hidden && /Virement bancaire/.test(ap.textContent) && /sans engagement/.test(ap.textContent));
+  }
+  check("retrait : seul le message court est demandé (formulaire complet désactivé)", ins.d.getElementById("champs-ajout").disabled && !ins.d.getElementById("champs-autre").disabled);
+  const aj = await ouvrir("inscription/index.html");
+  const req = n => { const e = aj.d.querySelector(`#champs-ajout [name="${n}"]`); return !!e && e.required; };
+  check("ajout d'une fiche : formulaire complet obligatoire (ville, adresse, téléphone, e-mail, autorisation), comme une inscription pro",
+    !aj.d.getElementById("champs-ajout").disabled && aj.d.getElementById("champs-autre").disabled && ["ville", "adresse", "telephone", "email", "autorise"].every(req) && !!aj.d.querySelector('#champs-ajout [name="whatsapp"]') && !!aj.d.querySelector('#champs-ajout [name="horaires"]'));
 }
 
 // -- espace professionnels et formule Pro (règles d'Ahmed du 06/10/2026)
 {
   const ins = lire("inscription/index.html");
-  check("professionnels : offre gratuite + formule Pro avec 1er mois gratuit et prix affichés", /class="offre pro"/.test(ins) && /mois offert/.test(ins) && /pour toujours/.test(ins) && /jamais supprimée/.test(ins));
+  check("bouton « Inscription Pro » visible dans l'en-tête de chaque page, vers les prix et avantages", /class="entete-pro" href="\$\{racine\}inscription\/#offres"/.test(lire("assets/page.js")) && lire("index.html").includes('href="inscription/#offres"'));
+  check("bouton « Paiement » : modes de paiement visibles d'un clic avant l'inscription (virement + montant)", /<details class="paiement" id="paiement"><summary[^>]*>[\s\S]*Paiement[\s\S]*Virement bancaire[\s\S]*Montant/.test(ins));
+  check("professionnels : offre gratuite + formule Pro avec 1er mois gratuit et prix affichés", /class="offre pro"/.test(ins) && /mois offert/.test(ins) && /pour toujours/.test(ins) && /jamais supprimée/.test(ins) && /Sans engagement au-delà d'un an/.test(ins));
   if (C.inscriptions_ouvertes !== true) check("inscriptions fermées (pas de déclaration INPDP) : ni formulaire Pro, ni coordonnées de paiement, ni page conditions",
-    !/data-envoi="pro"/.test(ins) && !/apres-pro/.test(ins) && !existsSync(join(root, "conditions", "index.html")));
+    !/data-envoi="pro"/.test(ins) && !/id="apres-pro"/.test(ins) && !existsSync(join(root, "conditions", "index.html")));
   else check("inscriptions ouvertes : déclaration INPDP, titulaire et RIB renseignés dans config.json", !!(C.pro && C.pro.inpdp && C.pro.virement && C.pro.virement.titulaire && C.pro.virement.rib));
   // simulation complète dans une copie temporaire : inscriptions ouvertes, un Pro en essai, un Pro expiré, une fiche vérifiée
   const { mkdtempSync, cpSync, writeFileSync, rmSync } = await import("fs");
@@ -198,7 +215,7 @@ else {
     const io = L("inscription/index.html");
     check("inscriptions ouvertes : formulaire Pro (formule, cases d'autorisation et de conditions), page conditions sans renouvellement automatique",
       /data-envoi="pro"/.test(io) && /name="formule" value="pro"/.test(io) && /name="autorise"[^>]*required/.test(io) && /name="conditions"[^>]*required/.test(io) && /aucun renouvellement automatique/.test(L("conditions/index.html")));
-    check("coordonnées de paiement (virement + D17) uniquement dans le bloc caché montré après l'envoi", /<div class="apres-pro" id="apres-pro" hidden>[\s\S]*00 000 0000000000000 00[\s\S]*D17[\s\S]*99 999 999/.test(io) && io.indexOf("00 000 0000000000000 00") > io.indexOf('id="apres-pro"'));
+    check("coordonnées de paiement (virement + D17) dans le bouton « Paiement » de l'offre Pro ET dans la confirmation après l'envoi", /<details class="paiement"[\s\S]*00 000 0000000000000 00[\s\S]*D17[\s\S]*99 999 999[\s\S]*<\/details>/.test(io) && /<div class="apres-pro" id="apres-pro" hidden>[\s\S]*00 000 0000000000000 00/.test(io) && /href="#pro"/.test(io));
     check("fiche non Pro : lien « Vérifiez votre fiche gratuitement » vers le formulaire Pro", L(`fiche/${idVerif}/index.html`).includes(`inscription/?fiche=${idVerif}&amp;nom=`));
     check("jamais « meilleur » dans l'espace professionnels", !/meilleur/i.test(io.replace(/n'écrivons jamais qu'un établissement est « le meilleur »/g, "")) && !/meilleur/i.test(L("conditions/index.html").replace(/« le meilleur »/g, "")));
     if (JSDOM) {
@@ -211,7 +228,7 @@ else {
       await new Promise(r => setTimeout(r, 50));
       const d = w.document, form = d.querySelector('form[data-envoi="pro"]');
       check("formulaire Pro : fiche et nom pré-remplis depuis le lien de la fiche", d.getElementById("p-fiche").value === idEssai && d.getElementById("p-nom").value === essaiNom);
-      check("coordonnées de paiement cachées avant l'envoi", d.getElementById("apres-pro").hidden);
+      check("confirmation cachée avant l'envoi", d.getElementById("apres-pro").hidden);
       form.querySelector('input[value="pro"]').checked = true;
       form.dispatchEvent(new w.Event("submit", { bubbles: true, cancelable: true }));
       await new Promise(r => setTimeout(r, 50));

@@ -36,7 +36,20 @@
       "fr_pl": "Comptables et experts-comptables",
       "ar": "محاسب",
       "ar_pl": "المحاسبون والخبراء المحاسبون",
-      "mots": "comptable expert-comptable expert comptable cabinet comptabilité bilan déclaration محاسب خبير محاسب مكتب محاسبة"
+      "mots": "comptable expert-comptable expert comptable cabinet comptabilité bilan déclaration محاسب خبير محاسب مكتب محاسبة",
+      "photo": {
+        "fichier": "assets/metiers-photos/comptable.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Registre comptable ouvert sur un bureau en bois",
+          "ar": "دفتر محاسبة مفتوح على مكتب خشبي"
+        },
+        "auteur": "Øyvind Holmstad",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Accounting_book.jpg"
+      }
     },
     {
       "id": "conseiller-fiscal",
@@ -47,7 +60,20 @@
       "fr_pl": "Conseillers fiscaux",
       "ar": "مستشار جبائي",
       "ar_pl": "المستشارون الجبائيون",
-      "mots": "conseiller fiscal conseil fiscal impôt impôts fiscalité déclaration مستشار جبائي جباية ضرائب أداءات"
+      "mots": "conseiller fiscal conseil fiscal impôt impôts fiscalité déclaration مستشار جبائي جباية ضرائب أداءات",
+      "photo": {
+        "fichier": "assets/metiers-photos/comptable.webp",
+        "largeur": 600,
+        "hauteur": 450,
+        "alt": {
+          "fr": "Registre de comptes tenu à la main, sur une table en bois",
+          "ar": "سجل حسابات مكتوب باليد على طاولة خشبية"
+        },
+        "auteur": "Øyvind Holmstad",
+        "licence": "CC BY-SA 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Accounting_book.jpg"
+      }
     }
   ],
   "liens": [
