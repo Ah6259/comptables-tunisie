@@ -322,6 +322,40 @@
    "lon": null,
    "source_url": "https://www.standfors.com/",
    "releve": "05/10/2026"
+  },
+  {
+   "id": "web-tunis-generale-de-conseil-fiscal",
+   "source": "web",
+   "metier": "conseiller-fiscal",
+   "nom": "La Générale de Conseil Fiscal",
+   "nom_ar": null,
+   "gouvernorat": "tunis",
+   "ville": "Tunis",
+   "adresse": "27 rue Ibn Charaf, Cité Les Jardins, appt A-3, 1002 Tunis",
+   "tel": "71841858",
+   "site": null,
+   "horaires": null,
+   "lat": null,
+   "lon": null,
+   "source_url": "http://www.gcf.tn/",
+   "releve": "06/10/2026"
+  },
+  {
+   "id": "web-tunis-cabinet-anis-ben-said",
+   "source": "web",
+   "metier": "conseiller-fiscal",
+   "nom": "Cabinet Anis Ben Said",
+   "nom_ar": null,
+   "gouvernorat": "tunis",
+   "ville": "Tunis",
+   "adresse": null,
+   "tel": null,
+   "site": null,
+   "horaires": null,
+   "lat": null,
+   "lon": null,
+   "source_url": "https://www.facebook.com/GLOBALTAXADVISING/",
+   "releve": "06/10/2026"
   }
  ]
 }
