@@ -78,9 +78,31 @@
   ],
   "liens": [
     {
-      "fr": "Calculer gratuitement salaire net, impôt, crédit",
-      "ar": "احسب مجانًا الأجر الصافي والضريبة والقرض",
-      "url": "https://ah6259.github.io/outils-pratiques-tunisie/"
+      "fr": "Calculs gratuits : salaire, impôt, crédit",
+      "ar": "حسابات مجانية: الأجر، الضريبة، القرض",
+      "url": "https://ah6259.github.io/outils-pratiques-tunisie/",
+      "desc_fr": "Barèmes officiels, en français et en arabe",
+      "desc_ar": "حسب الجداول الرسمية، بالعربية والفرنسية"
+    },
+    {
+      "fr": "Calculer un salaire net",
+      "ar": "احسب الأجر الصافي",
+      "url": "https://ah6259.github.io/outils-pratiques-tunisie/salaire-net/"
+    },
+    {
+      "fr": "Calculer l'impôt sur le revenu",
+      "ar": "احسب الضريبة على الدخل",
+      "url": "https://ah6259.github.io/outils-pratiques-tunisie/impot-revenu/"
+    },
+    {
+      "fr": "Auto-entrepreneur : ce que vous payez",
+      "ar": "المبادر الذاتي: ما تدفعه",
+      "url": "https://ah6259.github.io/outils-pratiques-tunisie/auto-entrepreneur/"
+    },
+    {
+      "fr": "Prêt d'honneur : démarches et modèle de demande",
+      "ar": "قرض الشرف: الإجراءات ونموذج الطلب",
+      "url": "https://ah6259.github.io/documents-tunisie/pret-d-honneur/"
     }
   ],
   "inscriptions_ouvertes": true,
