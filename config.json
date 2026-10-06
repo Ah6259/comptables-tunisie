@@ -82,7 +82,9 @@
       "ar": "حسابات مجانية: الأجر، الضريبة، القرض",
       "url": "https://ah6259.github.io/outils-pratiques-tunisie/",
       "desc_fr": "Barèmes officiels, en français et en arabe",
-      "desc_ar": "حسب الجداول الرسمية، بالعربية والفرنسية"
+      "desc_ar": "حسب الجداول الرسمية، بالعربية والفرنسية",
+      "logo": "assets/liens/outils.svg",
+      "vedette": true
     },
     {
       "fr": "Calculer un salaire net",
