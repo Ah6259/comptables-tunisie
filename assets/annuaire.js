@@ -48,8 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const champ = document.getElementById("champ-fiche");
   if (!champ) return;
   const q = new URLSearchParams(location.search), id = (q.get("fiche") || "").replace(/[^a-z0-9-]/gi, "").slice(0, 40);
-  const action = q.get("action");
+  const action = q.get("action"), nom = (q.get("nom") || "").slice(0, 120);
   if (id) { champ.value = id; const p = document.getElementById("fiche-choisie"); p.hidden = false; p.textContent = T("Fiche concernée : ", "البطاقة المعنية: ") + id; }
+  // formulaire Pro (lien « Vérifiez votre fiche » d'une fiche) : même fiche, nom pré-rempli
+  const pf = document.getElementById("p-fiche"), pn = document.getElementById("p-nom");
+  if (pf && id) pf.value = id;
+  if (pn && nom) pn.value = nom;
   const r = document.querySelector(`input[name="action"][value="${action === "retirer" ? "retirer" : action === "corriger" ? "corriger" : "ajouter"}"]`);
   if (r) r.checked = true;
 });
@@ -65,8 +69,12 @@ document.addEventListener("submit", async e => {
   try {
     const rep = await fetch(f.action, { method: "POST", body: new FormData(f), headers: { Accept: "application/json" } });
     if (!rep.ok) throw new Error(rep.status);
+    const formule = new FormData(f).get("formule") || "";
     f.reset(); statut.textContent = T("Merci, c'est envoyé. Nous lisons chaque message.", "شكرًا، تم الإرسال. نقرأ كل رسالة.");
-    compter(`envoi-${f.dataset.envoi}`, `Formulaire ${f.dataset.envoi} envoyé`);
+    compter(`envoi-${f.dataset.envoi}${formule ? "-" + formule : ""}`, `Formulaire ${f.dataset.envoi} envoyé`);
+    // inscription : confirmation et coordonnées du virement, montrées seulement après l'envoi
+    const apres = f.dataset.envoi === "pro" && document.getElementById("apres-pro");
+    if (apres) { f.hidden = true; apres.hidden = false; apres.scrollIntoView && apres.scrollIntoView({ block: "start" }); }
   } catch (err) {
     statut.textContent = T("Envoi impossible pour l'instant. Réessayez plus tard.", "تعذّر الإرسال حاليًا. أعد المحاولة لاحقًا.");
   } finally { bouton.disabled = false; }
