@@ -1,4 +1,10 @@
 # Comptables et conseillers Tunisie — https://ah6259.github.io/comptables-tunisie/
+
+> ⚠️ **À REPORTER DANS LE MOTEUR DU PC (`annuaires/moteur/`) AVANT TOUTE SYNCHRONISATION** (07/10/2026) : correction des grandes
+> cartes de métier qui filtrent la liste (`a.metier[data-m]` → `choisir()` dans `assets/annuaire.js`) + son test dans
+> `tools/test_site.mjs` (« une grande carte de métier filtre la liste »). Faite depuis le téléphone, elle a déjà été effacée une
+> fois par `synchroniser.py` le 07/10 : copier `assets/annuaire.js` et `tools/test_site.mjs` de ce dépôt vers le moteur, puis supprimer ce bloc.
+
 - Métiers : comptables et experts-comptables (`office=accountant`), conseillers fiscaux (`office=tax_advisor`).
   Pas d'étiquette OpenStreetMap pour les commissaires aux comptes ; `consulting=legal` vide en Tunisie (conseillers juridiques non repris).
 - Relevé du 05/10/2026 : 4 fiches (1 comptable, 3 conseillers fiscaux) ; 1 fiche OSM mal classée (huissier / notaire) écartée par `donnees/retraits.json`.
