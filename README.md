@@ -1,7 +1,7 @@
 # Comptables et conseillers Tunisie
 
 Annuaire gratuit des comptables, experts-comptables et conseillers fiscaux en Tunisie, par gouvernorat, en français et en arabe :
-https://ah6259.github.io/comptables-tunisie/
+https://comptables.clicvia.com/
 
 - Métiers et étiquettes OpenStreetMap : comptables (`office=accountant`), conseillers fiscaux (`office=tax_advisor`).
 - 4 fiches au premier relevé (octobre 2026) ; elles s'ajoutent d'elles-mêmes quand OpenStreetMap s'enrichit.

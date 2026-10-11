@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://ah6259.github.io/comptables-tunisie/sitemap.xml
+Sitemap: https://comptables.clicvia.com/sitemap.xml
 
 # Robots d'intelligence artificielle et aspirateurs : non
 User-agent: GPTBot
