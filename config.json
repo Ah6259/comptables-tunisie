@@ -49,7 +49,29 @@
         "licence": "CC BY-SA 4.0",
         "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Accounting_book.jpg"
-      }
+      },
+      "liens": [
+        {
+          "url": "https://oect.org.tn/annuaire-des-membres-de-lordre-des-experts-comptables-de-tunisie-a/",
+          "fr": "OECT — Ordre des experts-comptables de Tunisie",
+          "ar": "هيئة الخبراء المحاسبين بالبلاد التونسية",
+          "note": {
+            "fr": "l'annuaire officiel des experts-comptables inscrits",
+            "ar": "الدليل الرسمي للخبراء المحاسبين المرسمين"
+          },
+          "organisme": true
+        },
+        {
+          "url": "https://www.cct.tn/annuaire/",
+          "fr": "CCT — Compagnie des comptables de Tunisie",
+          "ar": "مجمع المحاسبين بالبلاد التونسية",
+          "note": {
+            "fr": "l'annuaire des comptables membres, par région",
+            "ar": "دليل المحاسبين الأعضاء حسب الجهة"
+          },
+          "organisme": true
+        }
+      ]
     },
     {
       "id": "conseiller-fiscal",
@@ -73,7 +95,8 @@
         "licence": "CC BY-SA 4.0",
         "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
         "source": "https://commons.wikimedia.org/wiki/File:Accounting_book.jpg"
-      }
+      },
+      "organisme_aucun": "22/10/2026 : pas d'Ordre (projet de loi) ; la chambre nationale des conseils fiscaux (UTICA) n'a pas de site"
     }
   ],
   "liens": [
@@ -130,8 +153,18 @@
     "prix_an": 59,
     "inpdp_accord": "Accord de l'INPDP obtenu par Ahmed le 06/10/2026 (contact direct)",
     "autres_paiements": [
-      {"nom": "D17", "detail": "24 321 390", "android": "https://play.google.com/store/apps/details?id=tn.mobipost", "iphone": "https://apps.apple.com/tn/app/digipostbank-d17/id1475640303"},
-      {"nom": "IZI", "detail": "24 321 390", "android": "https://play.google.com/store/apps/details?id=tn.izi.consumer", "iphone": "https://apps.apple.com/tn/app/izi/id1603653941"}
+      {
+        "nom": "D17",
+        "detail": "24 321 390",
+        "android": "https://play.google.com/store/apps/details?id=tn.mobipost",
+        "iphone": "https://apps.apple.com/tn/app/digipostbank-d17/id1475640303"
+      },
+      {
+        "nom": "IZI",
+        "detail": "24 321 390",
+        "android": "https://play.google.com/store/apps/details?id=tn.izi.consumer",
+        "iphone": "https://apps.apple.com/tn/app/izi/id1603653941"
+      }
     ],
     "whatsapp_preuve": "24321390"
   }
